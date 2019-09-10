@@ -4,31 +4,33 @@ import dash_core_components as dcc
 import dash_html_components as html
 import os
 
-
-####### Set up your app #####
-app = dash.Dash(__name__)
+###### Set up variables
+list_of_choices=['punch', 'body-slam', 'round-house kick to the face']
+myheading='Chuck Norris execution method'
+tabtitle='Chuck'
+########### Initiate the app
+external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
+app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 server = app.server
-
-app.css.append_css({"external_url": "https://codepen.io/chriddyp/pen/bWLwgP.css"})
-
+app.title=tabtitle
 
 ####### Layout of the app ########
 app.layout = html.Div([
-    html.H2('Chuck Norris execution method'),
+    html.H2(myheading),
     dcc.Dropdown(
-        id='dropdown',
-        options=[{'label': i, 'value': i} for i in ['round-house kick to the face', 'punch', 'body-slam']],
+        id='your-input-here',
+        options=[{'label': i, 'value': i} for i in list_of_choices],
         value='punch'
     ),
-    html.Div(id='display-value')
+    html.Div(id='your-output-here', children='')
 ])
 
 
 ######### Interactive callbacks go here #########
-@app.callback(dash.dependencies.Output('display-value', 'children'),
-              [dash.dependencies.Input('dropdown', 'value')])
-def display_value(value):
-    return 'Chuck Norris will execute by "{}"'.format(value)
+@app.callback(dash.dependencies.Output('your-output-here', 'children'),
+              [dash.dependencies.Input('your-input-here', 'value')])
+def display_value(whatever_you_chose):
+    return f'Chuck Norris will execute by {whatever_you_chose}'
 
 
 ######### Run the app #########
