@@ -6,7 +6,7 @@ import os
 
 ###### Set up variables
 list_of_choices=['punch', 'paralize with breath', 'hug']
-githublink = 'https://github.com/szilviaaltorjai/chuck_norris_execution'
+githublink = 'https://github.com/szilviaaltorjai/chuck_norris_execution2'
 image1='chucknorris.jpg'
 
 ########### Initiate the app
