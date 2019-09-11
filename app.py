@@ -6,7 +6,7 @@ import os
 
 ###### Set up variables
 list_of_choices=['punch', 'body-slam', 'round-house kick to the face']
-githublink = 'https://github.com/austinlasseter/chuck_norris_execution'
+githublink = 'https://github.com/szilviaaltorjai/chuck_norris_execution'
 image1='chucknorris.jpg'
 
 ########### Initiate the app
@@ -21,7 +21,7 @@ app.layout = html.Div([
     html.Img(src=app.get_asset_url(image1), style={'width': 'auto', 'height': '10%'}),
     dcc.Dropdown(id='your-input-here',
                 options=[{'label': i, 'value': i} for i in list_of_choices],
-                value='punch',
+                value='body-slam',
                 style={'width': '500px'}),
     html.Br(),
     html.Div(id='your-output-here', children=''),
